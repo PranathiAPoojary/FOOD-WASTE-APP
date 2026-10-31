@@ -1,0 +1,39 @@
+databases:
+  - name: foodcycle-db
+    databaseName: foodcycle
+    user: foodcycle_user
+    plan: free
+    region: singapore
+
+services:
+  # Option 1: Full-Stack Node / Express + React (Turnkey)
+  - type: web
+    name: foodcycle-app
+    env: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: foodcycle-db
+          property: connectionString
+
+  # Option 2: Python Flask Backend (Optional if running Flask on Render)
+  # - type: web
+  #   name: foodcycle-flask-api
+  #   env: python
+  #   plan: free
+  #   region: singapore
+  #   buildCommand: pip install -r backend_flask/requirements.txt
+  #   startCommand: gunicorn --chdir backend_flask wsgi:app -b 0.0.0.0:$PORT
+  #   envVars:
+  #     - key: DATABASE_URL
+  #       fromDatabase:
+  #         name: foodcycle-db
+  #         property: connectionString

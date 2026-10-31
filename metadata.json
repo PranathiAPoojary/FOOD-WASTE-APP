@@ -1,0 +1,8 @@
+{
+  "name": "FoodCycle - Surplus Food Rescue & Redistribution",
+  "description": "Full-stack food rescue platform connecting restaurants, grocery stores, charities, and volunteer drivers to reduce waste and fight food insecurity with PostgreSQL database.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
